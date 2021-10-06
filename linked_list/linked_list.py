@@ -22,18 +22,26 @@ class Node(object):
 
 class LinkedList(object):
   
-  def __init__(self, value: object) -> None:
-    self.head = Node(value, None) 
+  def __init__(self) -> None:
+    self.head = None
     self.tail = self.head
-    self.length = 1
+    self.length = 0
 
   def prepend(self, value: object) -> None:
     """Add value to head of Linked List."""
     self.head = Node(value, self.head)
     self.length += 1
 
+    # Set tail if first item
+    if self.length == 1:
+      self.tail = self.head
+
   def append(self, value: object) -> None:
     """Add value to tail of Linked List."""
+    if not self.head:
+      self.prepend(value)
+      return
+
     self.tail.next = Node(value, None)
     self.tail = self.tail.next
     self.length += 1
@@ -132,11 +140,11 @@ class LinkedList(object):
     """Returns deep copy of Linked List"""
     counter = 0
     node = self.head
-    new_ll = LinkedList(node.value)
+    new_ll = LinkedList()
     while counter != self.length:
-      node = node.next
       if node:
         new_ll.append(deepcopy(node.value)) 
+      node = node.next
       counter += 1 
     
     return new_ll
@@ -158,11 +166,6 @@ class LinkedList(object):
       
       return True
 
-      
-
-      
-
-
   def __str__(self):
     s = "Start"
     node = self.head 
@@ -172,6 +175,9 @@ class LinkedList(object):
     s += "\nEnd" 
 
     return s
+
+  def __len__(self) -> int:
+    return self.length
 
 
 

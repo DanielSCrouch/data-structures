@@ -4,12 +4,9 @@ from linked_list.linked_list import LinkedList
 
 class TestLinkedList(unittest.TestCase):
 
-  def test_create(self):
-    ll = LinkedList(1)
-    self.assertEqual(ll.head.value, 1)
-
   def test_append(self):
-    ll = LinkedList(1)
+    ll = LinkedList()
+    ll.append(1)
     ll.append(2)
     ll.append(3)
     
@@ -18,7 +15,8 @@ class TestLinkedList(unittest.TestCase):
     self.assertEqual(ll.head.next.next.value, 3) 
 
   def test_insert(self):
-    ll = LinkedList(1) 
+    ll = LinkedList() 
+    ll.append(1)
     ll.append(2)
     ll.append(3)
 
@@ -37,7 +35,8 @@ class TestLinkedList(unittest.TestCase):
     self.assertRaises(ValueError, ll.insert, 6, "a")
 
   def test_remove_head(self):
-    ll = LinkedList(1)
+    ll = LinkedList()
+    ll.append(1)
     ll.append(2)
     ll.append(3)
 
@@ -48,7 +47,8 @@ class TestLinkedList(unittest.TestCase):
     self.assertEqual(ll.head.next.value, 3) 
 
   def test_remove(self):
-    ll = LinkedList(1)
+    ll = LinkedList()
+    ll.append(1)
     ll.append(2)
     ll.append(3)
 
@@ -60,7 +60,8 @@ class TestLinkedList(unittest.TestCase):
     self.assertEqual(ll.tail.value, 3) 
 
   def test_traverse(self):
-    ll = LinkedList(1)
+    ll = LinkedList()
+    ll.append(1)
     ll.append(2)
     ll.append(3)
 
@@ -70,14 +71,16 @@ class TestLinkedList(unittest.TestCase):
     self.assertEqual(traverse.__next__().value, 3)
 
   def test_search(self):
-    ll = LinkedList(1)
+    ll = LinkedList()
+    ll.append(1)
     ll.append(2)
     ll.append(3)
 
     self.assertEqual(ll.search(1), 2) 
 
   def test_reverse(self):
-    ll = LinkedList(1)  
+    ll = LinkedList() 
+    ll.append(1) 
     ll.append(2)
     ll.append(3)
 
@@ -88,7 +91,8 @@ class TestLinkedList(unittest.TestCase):
     self.assertEqual(traverse.__next__().value, 1)
 
   def test_update(self):
-    ll = LinkedList(1)  
+    ll = LinkedList()  
+    ll.append(1)
     ll.append(2)
     ll.append(3)
 
@@ -101,7 +105,8 @@ class TestLinkedList(unittest.TestCase):
 
 
   def test_deep_copy(self):
-    ll = LinkedList(1)  
+    ll = LinkedList()  
+    ll.append(1)
     ll.append(2)
     ll.append(3)
 
@@ -114,7 +119,8 @@ class TestLinkedList(unittest.TestCase):
     self.assertEqual(ll2.search(1), 2) 
 
   def test_deep_copy2(self):
-    ll = LinkedList(1)  
+    ll = LinkedList()  
+    ll.append(1)
     ll.append(["a", "b", "c"])
     ll.append(3)
 
@@ -127,7 +133,8 @@ class TestLinkedList(unittest.TestCase):
     self.assertEqual(ll2.search(1), ["a", "b", "c"]) 
 
   def test_equal(self):
-    ll = LinkedList(1)  
+    ll = LinkedList()  
+    ll.append(1)
     ll.append(2)
     ll.append(3)
 

@@ -66,9 +66,9 @@ class TestLinkedList(unittest.TestCase):
     ll.append(3)
 
     traverse = ll.traverse()
-    self.assertEqual(traverse.__next__().value, 1)
-    self.assertEqual(traverse.__next__().value, 2)
-    self.assertEqual(traverse.__next__().value, 3)
+    self.assertEqual(traverse.__next__(), 1)
+    self.assertEqual(traverse.__next__(), 2)
+    self.assertEqual(traverse.__next__(), 3)
 
   def test_search(self):
     ll = LinkedList()
@@ -86,9 +86,9 @@ class TestLinkedList(unittest.TestCase):
 
     ll.reverse()
     traverse = ll.traverse()
-    self.assertEqual(traverse.__next__().value, 3)
-    self.assertEqual(traverse.__next__().value, 2)
-    self.assertEqual(traverse.__next__().value, 1)
+    self.assertEqual(traverse.__next__(), 3)
+    self.assertEqual(traverse.__next__(), 2)
+    self.assertEqual(traverse.__next__(), 1)
 
   def test_update(self):
     ll = LinkedList()  
@@ -99,9 +99,9 @@ class TestLinkedList(unittest.TestCase):
     ll.update(1, "x") 
 
     traverse = ll.traverse()
-    self.assertEqual(traverse.__next__().value, 1)
-    self.assertEqual(traverse.__next__().value, "x")
-    self.assertEqual(traverse.__next__().value, 3)
+    self.assertEqual(traverse.__next__(), 1)
+    self.assertEqual(traverse.__next__(), "x")
+    self.assertEqual(traverse.__next__(), 3)
 
 
   def test_deep_copy(self):

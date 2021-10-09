@@ -60,12 +60,14 @@ class LinkedList(object):
     return node
 
   def traverse(self) -> Iterator:
-    """Returns a generator function returning all nodes in series"""
+    """Returns a generator function returning all values in series"""
     node = self.head
-    yield node
+    if node == None:
+      yield None
+    yield node.value
     while node.next:
       node = node.next
-      yield node
+      yield node.value
 
   def insert(self, index: int, value: object) -> None:
     """Insert an item into the list at the index position"""
@@ -159,8 +161,8 @@ class LinkedList(object):
       traverse1 = self.traverse()
       traverse2 = o.traverse()
       for _ in range(self.length):
-        value1 = traverse1.__next__().value
-        value2 = traverse2.__next__().value
+        value1 = traverse1.__next__()
+        value2 = traverse2.__next__()
         if value1 != value2:
           return False
       

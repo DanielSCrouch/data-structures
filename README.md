@@ -1,6 +1,6 @@
-# Collection of simple Data Structures written in Python
+# Collection of simple Data Structures 
 
-Written as training Kata to demonstrate Pythonic code, test driven development, data structures, optimisations and design patterns.
+Training Kata demonstrating Pythonic code, test driven development and basic data structures; written in Python
 
 ```bash
 python3 -m unittest

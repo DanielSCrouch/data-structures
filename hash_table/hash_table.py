@@ -25,11 +25,18 @@ class HashTable(object):
     index = self.hash(key)
     if self.data[index] == None:
       self.data[index] = LinkedList()
-    self.data[index].append(value)
+    self.data[index].append([key, value]) 
 
-  def search(self, key: Union[str, int, float, bool]) -> LinkedList:
+  def search(self, key: Union[str, int, float, bool]) -> object:
     index = self.hash(key)
-    return self.data[index]
+    ll = self.data[index]
+    value = None
+    if ll is not None: 
+      for item in ll.traverse():
+        if item[0] == key:
+          value = item[1]
+          break
+    return value
 
   def delete(self, key: Union[str, int, float, bool]) -> None:
     index = self.hash(key)

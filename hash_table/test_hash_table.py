@@ -32,18 +32,8 @@ class TestHashTable(unittest.TestCase):
     ht.insert("b", 3)
 
     self.assertEqual(ht.search("z1"), None)
-    self.assertEqual(type(ht.search("a")), LinkedList)
-    self.assertEqual(type(ht.search("b")), LinkedList)
-
-    ll = ht.search("a")
-    iterator = ll.traverse() 
-    self.assertEqual(iterator.__next__(), 1) 
-    self.assertRaises(StopIteration, iterator.__next__) 
-
-    ll = ht.search("b")
-    iterator = ll.traverse() 
-    self.assertEqual(iterator.__next__(), 2) 
-    self.assertEqual(iterator.__next__(), 3) 
+    self.assertEqual(ht.search("a"), 1)
+    self.assertEqual(ht.search("b"), 2)
 
 
 
